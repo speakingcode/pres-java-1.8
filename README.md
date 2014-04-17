@@ -150,4 +150,3 @@ We can re-implement our `printUsers` method using the `java.util.function.Predic
 
 If our application needed to print lists of users depending on different criteria at different times, our code will get bulky, and repetitive, which isn't very DRY.
 
-
