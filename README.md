@@ -271,7 +271,7 @@ This approach to programming, where behavior is based on the evaluation of funct
 
 ## Aggregate Operations, Pipelines, and Streams
 
-Given it's lengthy history, several common and fundamental operations in functional programming are well understood, and Java 8 provides them as _Aggregate Operations_, largely through the Stream API. A stream is a sequence of elements, but it is NOT a data structure. It gets values from a source and pumps them into a _pipeline_. A pipeline is a sequence of aggregate operations.
+Given fucntional programming's lengthy history, several common and fundamental behaviors and operations have emerged which are provided in most functional-flavored languages. Java 8 provides them as _Aggregate Operations_, largely through the Stream API, which is based on _stream_ objects. A stream is a sequence of elements, similar to an iterator, but NOT a data structure. Streams gets values from a source, such as collection data structure, and pump them into a _pipeline_, which is nothing more than a sequence of aggregate operations. The distinction between between streams and data structures is important, because streams are not limited to sourcing data from data structures; they can also _generate_ data, even infinitely. 
 
 Rather than implementing our own iteration behavior as in the previous examples, we could instead employ aggregate operations to achieve the same behavior:
 
@@ -283,9 +283,10 @@ Rather than implementing our own iteration behavior as in the previous examples,
          .filter(user -> user.getFavoriteColor() == Color.RED && user.getAge() < 27)
          .forEach(user -> sendAnEmail(user.getEmailAddress));
 
-    user.getPosts().stream()
+    user.getPosts()
+        .stream()
         .filter(post -> post.getVisibility() == "public")
-        .forEach(post -> displayPost(post));
+        .forEach(postViewManager::displayPost);
 
 The stream API provides many aggregate operations which can be chained together to perform complex transformations of data with very little code. Let's say we want to get the average age of all users whose favorite color is green:
 
