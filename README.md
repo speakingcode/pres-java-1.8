@@ -243,6 +243,7 @@ Now we can implement both requirements using this `processItems` method:
       user -> sendAnEmail(user.getEmailAddress())
     );
 
+
     processElements
     (
       user.getPosts(),
@@ -279,9 +280,11 @@ Rather than implementing our own iteration behavior as in the previous examples,
          .filter(user -> user.getFavoriteColor() == Color.RED && user.getAge() < 27)
          .forEach(user -> System.out.println(user.getName());
 
+
     users.stream()
          .filter(user -> user.getFavoriteColor() == Color.RED && user.getAge() < 27)
          .forEach(user -> sendAnEmail(user.getEmailAddress));
+
 
     user.getPosts()
         .stream()
